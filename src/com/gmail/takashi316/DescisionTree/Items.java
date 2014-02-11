@@ -9,4 +9,13 @@ public class Items extends ArrayList<Item> {
 			this.add(item);
 		}
 	}
+
+	public Classes getClasses() {
+		Classes classes = new Classes();
+		for (Item i : this) {
+			classes.add(i.classId);
+		}
+		return classes;
+	}
+
 }
