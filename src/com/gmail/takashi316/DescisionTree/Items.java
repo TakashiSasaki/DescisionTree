@@ -1,6 +1,9 @@
 package com.gmail.takashi316.DescisionTree;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Items extends ArrayList<Item> {
 	public Items(int[][] items) {
@@ -18,4 +21,19 @@ public class Items extends ArrayList<Item> {
 		return classes;
 	}
 
+	public ArrayList<Integer> getAttributeValues(int attribute) {
+		Set<Integer> value_set = new HashSet<Integer>();
+		for (int i = 0; i < this.size(); i++) {
+			value_set.add(this.get(i).attributeValues[attribute]);
+		}
+		ArrayList<Integer> values = new ArrayList<Integer>(value_set);
+		Collections.sort(values);
+		return values;
+	}
+
+	static public void main(String[] args) {
+		int[][] x = { { 1, 2, 3 }, { 2, 3, 4 }, { 4, 5, 6 } };
+		Items items = new Items(x);
+		System.out.println(items.getAttributeValues(1));
+	}
 }
