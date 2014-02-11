@@ -1,5 +1,7 @@
 package com.gmail.takashi316.DescisionTree;
 
+import java.util.Comparator;
+
 public class DividedItems {
 	public double entropyBeforeDivision;
 	public double entropyOfLargerOrEqualItems;
@@ -32,4 +34,9 @@ public class DividedItems {
 
 	public Items largerOrEqualItems = new Items();
 	public Items smallerItems = new Items();
+
+	public String toString() {
+		return "attribute=" + this.attribute + " threshold=" + this.threshold
+				+ " entropyGain=" + entropyGain;
+	}
 }

@@ -26,5 +26,6 @@ public class DescitionTree {
 		System.out.println(divided_items.entropyGain);
 		ArrayList<DividedItems> aldi = items.divideAll();
 		System.out.println(aldi.size());
+		System.out.println(aldi);
 	}
 }
