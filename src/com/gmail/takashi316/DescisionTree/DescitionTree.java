@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class DescitionTree {
 
 	public static void main(String[] args) {
-		int x[][] = { { 1, 2, 3, 1 }, { 1, 3, 5, 3 }, { 1, 3, 3, 2 },
-				{ 1, 3, 3, 4 }, { 1, 1, 3, 5 }, { 1, 0, 3, 6 }, { 1, 1, 3, 5 } };
+		int x[][] = { { 1, 0, 3, 6 }, { 1, 1, 3, 5 }, { 1, 1, 3, 5 },
+				{ 1, 2, 3, 1 }, { 1, 3, 3, 2 }, { 1, 3, 3, 4 }, { 1, 3, 5, 3 }, };
 		Items items = new Items(x);
 		System.out.println(items.getClasses().getEntropy());
 		DividedItems divided_items = new DividedItems(items, 1, 2);
@@ -27,5 +27,6 @@ public class DescitionTree {
 		ArrayList<DividedItems> aldi = items.divideAll();
 		System.out.println(aldi.size());
 		System.out.println(aldi);
+		System.out.println(items.divideAtMaxEntropyGain());
 	}
 }

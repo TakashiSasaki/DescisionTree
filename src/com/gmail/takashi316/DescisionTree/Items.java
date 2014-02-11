@@ -57,6 +57,11 @@ public class Items extends ArrayList<Item> {
 		return aldi;
 	}
 
+	public DividedItems divideAtMaxEntropyGain() {
+		ArrayList<DividedItems> aldi = divideAll();
+		return aldi.get(0);
+	}
+
 	static public void main(String[] args) {
 		int[][] x = { { 1, 2, 3 }, { 2, 3, 4 }, { 4, 5, 6 } };
 		Items items = new Items(x);
