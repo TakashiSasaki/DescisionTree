@@ -13,7 +13,7 @@ public class Classes extends ArrayList<Integer> {
 			if (v == null) {
 				m.put(this.get(i), new Integer(1));
 			} else {
-				v = v + 1;
+				m.put(this.get(i), v + 1);
 			}
 		}
 		double entropy = 0;
@@ -39,5 +39,21 @@ public class Classes extends ArrayList<Integer> {
 		classes.add(6);
 		// it should be 2.58
 		System.out.println("1,2,3,4,5,6 => " + classes.getEntropy());
+		classes.clear();
+		classes.add(1);
+		classes.add(1);
+		classes.add(2);
+		classes.add(3);
+		classes.add(3);
+		classes.add(3);
+		classes.add(2);
+		classes.add(1);
+		classes.add(1);
+		classes.add(3);
+		classes.add(1);
+		classes.add(2);
+		classes.add(2);
+		classes.add(3);
+		System.out.println("11233321131223 => " + classes.getEntropy());
 	}
 }
