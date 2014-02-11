@@ -1,16 +1,35 @@
 package com.gmail.takashi316.DescisionTree;
 
 public class DividedItems {
+	public double entropyBeforeDivision;
+	public double entropyOfLargerOrEqualItems;
+	public double entropyOfSmallerItems;
+	public double entropyAfterDivision;
+	public int attribute;
+	public int threshold;
+	public double entropyGain;
+
 	public DividedItems(Items items, int attribute, int threshold) {
+		this.attribute = attribute;
+		this.threshold = threshold;
 		for (int i = 0; i < items.size(); i++) {
 			if (items.get(i).attributeValues[attribute] >= threshold) {
-				largerOrEqualItem.add(items.get(i));
+				largerOrEqualItems.add(items.get(i));
 			} else {
-				smallerItem.add(items.get(i));
+				smallerItems.add(items.get(i));
 			}
 		}
+		entropyBeforeDivision = items.getClasses().getEntropy();
+		entropyOfLargerOrEqualItems = largerOrEqualItems.getClasses()
+				.getEntropy();
+		entropyOfSmallerItems = smallerItems.getClasses().getEntropy();
+		entropyAfterDivision = (entropyOfLargerOrEqualItems
+				* largerOrEqualItems.size() + entropyOfSmallerItems
+				* smallerItems.size())
+				/ items.size();
+		entropyGain = entropyBeforeDivision - entropyAfterDivision;
 	}
 
-	public Items largerOrEqualItem = new Items();
-	public Items smallerItem = new Items();
+	public Items largerOrEqualItems = new Items();
+	public Items smallerItems = new Items();
 }
