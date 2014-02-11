@@ -16,4 +16,12 @@ public class Item {
 		}
 		classId = attribute_values_and_class_id[attribute_values_and_class_id.length - 1];
 	}
+
+	public String toString() {
+		String s = "" + attributeValues[0] + ",";
+		for (int i = 1; i < attributeValues.length; ++i) {
+			s = s + attributeValues[i] + ",";
+		}
+		return s + classId;
+	}
 }

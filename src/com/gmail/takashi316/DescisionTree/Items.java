@@ -6,6 +6,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Items extends ArrayList<Item> {
+
+	public Items() {
+		super();
+	}
+
 	public Items(int[][] items) {
 		for (int i = 0; i < items.length; ++i) {
 			Item item = new Item(items[i]);
@@ -29,6 +34,10 @@ public class Items extends ArrayList<Item> {
 		ArrayList<Integer> values = new ArrayList<Integer>(value_set);
 		Collections.sort(values);
 		return values;
+	}
+
+	public DividedItems divide(int attribute, int threshold) {
+		return new DividedItems(this, attribute, threshold);
 	}
 
 	static public void main(String[] args) {
