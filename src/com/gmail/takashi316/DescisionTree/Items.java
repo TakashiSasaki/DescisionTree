@@ -63,8 +63,9 @@ public class Items extends ArrayList<Item> {
 	}
 
 	static public void main(String[] args) {
-		int[][] x = { { 1, 2, 3 }, { 2, 3, 4 }, { 4, 5, 6 } };
+		int[][] x = { { 1, 1 }, { 2, 1 }, { 3, 2 }, { 4, 2 }, { 5, 2 } };
 		Items items = new Items(x);
-		System.out.println(items.getAttributeValues(1));
+		System.out.println(items.getAttributeValues(0));
+		System.out.println(items.divideAtMaxEntropyGain());
 	}
 }
