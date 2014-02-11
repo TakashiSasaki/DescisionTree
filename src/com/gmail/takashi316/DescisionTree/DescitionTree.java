@@ -1,5 +1,7 @@
 package com.gmail.takashi316.DescisionTree;
 
+import java.util.ArrayList;
+
 public class DescitionTree {
 
 	public static void main(String[] args) {
@@ -22,5 +24,7 @@ public class DescitionTree {
 		System.out.println(divided_items.entropyAfterDivision
 				- divided_items.entropyBeforeDivision);
 		System.out.println(divided_items.entropyGain);
+		ArrayList<DividedItems> aldi = items.divideAll();
+		System.out.println(aldi.size());
 	}
 }

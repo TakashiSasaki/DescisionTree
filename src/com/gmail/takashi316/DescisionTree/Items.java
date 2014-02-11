@@ -40,6 +40,21 @@ public class Items extends ArrayList<Item> {
 		return new DividedItems(this, attribute, threshold);
 	}
 
+	public ArrayList<DividedItems> divideAll() {
+		ArrayList<DividedItems> aldi = new ArrayList<DividedItems>();
+		for (int i = 0; i < this.get(0).attributeValues.length; i++) {
+			ArrayList<Integer> attribute_values = this.getAttributeValues(i);
+			for (int j = 0; j < attribute_values.size(); ++j) {
+				int threshold = attribute_values.get(j);
+				DividedItems di = new DividedItems(this, i, threshold);
+				aldi.add(di);
+				System.out.println("attribute=" + i + " threshold=" + threshold
+						+ " entropyGain=" + di.entropyGain);
+			}
+		}
+		return aldi;
+	}
+
 	static public void main(String[] args) {
 		int[][] x = { { 1, 2, 3 }, { 2, 3, 4 }, { 4, 5, 6 } };
 		Items items = new Items(x);
