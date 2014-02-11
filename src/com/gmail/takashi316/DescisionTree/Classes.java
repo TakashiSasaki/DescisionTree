@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+@SuppressWarnings("serial")
 public class Classes extends ArrayList<Integer> {
 	public double getEntropy() {
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
@@ -21,7 +22,7 @@ public class Classes extends ArrayList<Integer> {
 		for (Iterator<Integer> i = m.keySet().iterator(); i.hasNext();) {
 			Integer k = i.next();
 			Integer v = m.get(k);
-			//System.out.println("" + k + " " + v);
+			// System.out.println("" + k + " " + v);
 			double p = v / denom;
 			double e = p * Math.log(p) / Math.log(2);
 			entropy += e;
