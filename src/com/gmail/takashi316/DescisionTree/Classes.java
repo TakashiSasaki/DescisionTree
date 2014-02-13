@@ -5,8 +5,14 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+ * Each integer value represents a class.
+ *  
+ * @author Takashi SASAKI <takashi316@gmail.com>
+ */
 @SuppressWarnings("serial")
 public class Classes extends ArrayList<Integer> {
+
 	public double getEntropy() {
 		Map<Integer, Integer> m = new HashMap<Integer, Integer>();
 		for (int i = 0; i < this.size(); ++i) {
@@ -28,33 +34,5 @@ public class Classes extends ArrayList<Integer> {
 			entropy += e;
 		}
 		return -entropy;
-	}
-
-	static public void main(String[] args) {
-		Classes classes = new Classes();
-		classes.add(1);
-		classes.add(2);
-		classes.add(3);
-		classes.add(4);
-		classes.add(5);
-		classes.add(6);
-		// it should be 2.58
-		System.out.println("1,2,3,4,5,6 => " + classes.getEntropy());
-		classes.clear();
-		classes.add(1);
-		classes.add(1);
-		classes.add(2);
-		classes.add(3);
-		classes.add(3);
-		classes.add(3);
-		classes.add(2);
-		classes.add(1);
-		classes.add(1);
-		classes.add(3);
-		classes.add(1);
-		classes.add(2);
-		classes.add(2);
-		classes.add(3);
-		System.out.println("11233321131223 => " + classes.getEntropy());
 	}
 }
