@@ -9,6 +9,11 @@ public class DividedItems {
 	public int threshold;
 	public double entropyGain;
 
+	public DividedItems(Items items) {
+		smallerItems = items;
+		largerOrEqualItems = null;
+	}
+
 	public DividedItems(Items items, int attribute, int threshold) {
 		this.attribute = attribute;
 		this.threshold = threshold;

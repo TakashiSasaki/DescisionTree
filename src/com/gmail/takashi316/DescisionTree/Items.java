@@ -42,6 +42,7 @@ public class Items extends ArrayList<Item> {
 	}
 
 	public ArrayList<DividedItems> divideAll() {
+		assert(this.size()>0);
 		ArrayList<DividedItems> aldi = new ArrayList<DividedItems>();
 		for (int i = 0; i < this.get(0).attributeValues.length; i++) {
 			ArrayList<Integer> attribute_values = this.getAttributeValues(i);
@@ -62,10 +63,23 @@ public class Items extends ArrayList<Item> {
 		return aldi.get(0);
 	}
 
+	public ArrayList<DividedItems> divideRecursively() {
+		ArrayList<DividedItems> aldi = new ArrayList<DividedItems>();
+		if (this.size() <= 1) {
+			aldi.add(new DividedItems(this));
+			return aldi;
+		}
+		DividedItems di = divideAtMaxEntropyGain();
+		aldi.addAll(di.smallerItems.divideRecursively());
+		aldi.addAll(di.largerOrEqualItems.divideRecursively());
+		return aldi;
+	}
+
 	static public void main(String[] args) {
 		int[][] x = { { 1, 1 }, { 2, 1 }, { 3, 2 }, { 4, 2 }, { 5, 2 } };
 		Items items = new Items(x);
 		System.out.println(items.getAttributeValues(0));
 		System.out.println(items.divideAtMaxEntropyGain());
+		System.out.println(items.divideRecursively());
 	}
 }
