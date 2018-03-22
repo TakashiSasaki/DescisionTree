@@ -57,5 +57,5 @@ function X(objects){
 }
 
 var x = new X(objects);
-console.log(x.entoropy());
+console.log(x);
 
