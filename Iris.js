@@ -39,4 +39,13 @@ class Iris extends Array{
 
 }//class Iris
 
-console.log(new Iris);
+if(typeof process !== "undefined") {
+	const x = process.argv[1].split("/");  
+	const y = x[x.length-1];
+	if(y === "Iris.js") test();
+}
+
+function test(){
+	console.log(new Iris);
+}
+
