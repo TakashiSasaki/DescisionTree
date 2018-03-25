@@ -49,3 +49,5 @@ function test(){
 	console.log(new Iris);
 }
 
+if(typeof exports === "undefined") exports = {};
+exports.Iris = Iris;
