@@ -1,6 +1,7 @@
 const fs = require("fs");
 const csv = require("csv");
 const csvSync = require("csv-parse/lib/sync");
+require("myassert");
 
 class Iris extends Array{
 
@@ -11,6 +12,9 @@ class Iris extends Array{
     Object.defineProperty(this, "sum", {value:{}, writable: true});
     Object.defineProperty(this, "count", {value:{}, writable: true});
     Object.defineProperty(this, "average", {value:{}, writable: true});
+    Object.defineProperty(this, "lower", {value:{}, writable: true});
+    Object.defineProperty(this, "higher", {value:{}, writable: true});
+    Object.defineProperty(this, "entropy", {value:{}, writable: true});
 
 		const columns = [
 			"sepal length",
@@ -42,6 +46,7 @@ class Iris extends Array{
 		objects.forEach((x)=>{this.push(x);});
 
     this.calcMinMaxSumCount();
+    this.divide();
 
 	}//constructor
 
@@ -68,6 +73,23 @@ class Iris extends Array{
     });// forEach x
   }// calcMinMaxSumCount
 
+  divide(){
+    this.forEach((x)=>{
+      Object.keys(x).forEach((y)=>{
+        if(x[y]<this.average[y]/2.0){
+          if(typeof this.lower[y] === 'undefined') this.lower[y] = [];
+          this.lower[y].push(x);
+        } else {
+          if(typeof this.higher[y] === 'undefined') this.higher[y] = [];
+          this.higher[y].push(x);
+        }//if
+      });//forEach y
+    });//forEach x
+  }//divide
+
+  entropy(){
+  }
+
 }//class Iris
 
 if(typeof process !== "undefined") {
@@ -88,9 +110,9 @@ function test(){
   console.log(iris.count);
   console.log("average");
   console.log(iris.average);
-
+  console.log(iris.lower);
+  console.log(iris.higher);
 }
 
 if(typeof exports === "undefined") exports = {};
 exports.Iris = Iris;
-
