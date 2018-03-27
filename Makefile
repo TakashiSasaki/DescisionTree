@@ -1,10 +1,10 @@
 .PHONY: prepare test-entropy test-iris
 
 test-entropy: entropy.js
-	@NODE_PATH=HashWrapper node $<
+	@NODE_PATH=MyAssert node $<
 
 test-iris: Iris.js
-	@NODE_PATH=/usr/local/lib/node_modules:HashWrapper node $<
+	@NODE_PATH=/usr/local/lib/node_modules:MyAssert node $<
 
 
 prepare:
